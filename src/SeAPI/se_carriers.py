@@ -1,7 +1,7 @@
 from se_request import SeRequest
 
 
-class ShipEngineCarrier:
+class ShipEngineCarriers:
     """
     This class will contain all the methods from ShipEngine's Carriers API Module
     """
