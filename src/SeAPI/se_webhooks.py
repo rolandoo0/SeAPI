@@ -1,6 +1,4 @@
-from decouple import config
 import json
-import aiohttp
 from se_request import SeRequest
 
 
@@ -25,7 +23,7 @@ class ShipEngineWebhooks:
             "Content-Type": "application/json",
         }
 
-        resp = await SeRequest.post(headers=headers, payload=payload, url=url)
+        resp = await SeRequest.post(self, headers=headers, payload=payload, url=url)
 
         return resp
 
@@ -41,7 +39,7 @@ class ShipEngineWebhooks:
             "Content-Type": "application/json",
         }
 
-        resp = await SeRequest.delete(headers=headers, payload=payload, url=url)
+        resp = await SeRequest.delete(self, headers=headers, payload=payload, url=url)
 
         return resp
 
@@ -57,7 +55,7 @@ class ShipEngineWebhooks:
             "Content-Type": "application/json",
         }
 
-        resp = await SeRequest.get(headers=headers, payload=payload, url=url)
+        resp = await SeRequest.get(self, headers=headers, payload=payload, url=url)
 
         return resp
 
@@ -73,7 +71,7 @@ class ShipEngineWebhooks:
             "Content-Type": "application/json",
         }
 
-        resp = await SeRequest.get(headers=headers, payload=payload, url=url)
+        resp = await SeRequest.get(self, headers=headers, payload=payload, url=url)
 
         return resp
 
@@ -89,6 +87,6 @@ class ShipEngineWebhooks:
             "Content-Type": "application/json",
         }
 
-        resp = await SeRequest.put(headers=headers, payload=payload, url=url)
+        resp = await SeRequest.put(self, headers=headers, payload=payload, url=url)
 
         return resp

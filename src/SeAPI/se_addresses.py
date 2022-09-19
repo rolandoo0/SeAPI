@@ -1,7 +1,5 @@
-from decouple import config
 from se_request import SeRequest
 import json
-import aiohttp
 
 
 class ShipEngineAddresses:
@@ -21,7 +19,7 @@ class ShipEngineAddresses:
             "Content-Type": "application/json",
         }
 
-        resp = await SeRequest.put(headers=headers, payload=payload, url=url)
+        resp = await SeRequest.put(self, headers=headers, payload=payload, url=url)
 
         return resp
 
@@ -38,6 +36,6 @@ class ShipEngineAddresses:
             "Content-Type": "application/json",
         }
 
-        resp = await SeRequest.put(headers=headers, payload=payload, url=url)
+        resp = await SeRequest.put(self, headers=headers, payload=payload, url=url)
 
         return resp

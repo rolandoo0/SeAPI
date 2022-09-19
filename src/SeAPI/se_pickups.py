@@ -1,7 +1,4 @@
 from datetime import datetime
-from decouple import config
-import json
-import aiohttp
 from se_request import SeRequest
 
 
@@ -25,7 +22,7 @@ class ShipEnginePickups:
             "API-Key": self.api_key,
         }
 
-        resp = await SeRequest.get(headers=headers, payload=payload, url=url)
+        resp = await SeRequest.get(self, headers=headers, payload=payload, url=url)
 
         return resp
 
@@ -61,7 +58,7 @@ class ShipEnginePickups:
             "API-Key": self.api_key,
         }
 
-        resp = await SeRequest.post(headers=headers, payload=payload, url=url)
+        resp = await SeRequest.post(self, headers=headers, payload=payload, url=url)
 
         return resp
 
@@ -77,7 +74,7 @@ class ShipEnginePickups:
             "API-Key": self.api_key,
         }
 
-        resp = await SeRequest.get(headers=headers, payload=payload, url=url)
+        resp = await SeRequest.get(self, headers=headers, payload=payload, url=url)
 
         return resp
 
@@ -93,6 +90,6 @@ class ShipEnginePickups:
             "API-Key": self.api_key,
         }
 
-        resp = await SeRequest.delete(headers=headers, payload=payload, url=url)
+        resp = await SeRequest.delete(self, headers=headers, payload=payload, url=url)
 
         return resp

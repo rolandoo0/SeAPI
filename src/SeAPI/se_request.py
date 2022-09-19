@@ -1,5 +1,3 @@
-from decouple import config
-import json
 import aiohttp
 
 

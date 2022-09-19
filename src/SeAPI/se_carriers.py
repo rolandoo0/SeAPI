@@ -1,7 +1,4 @@
-from decouple import config
 from se_request import SeRequest
-import json
-import aiohttp
 
 
 class ShipEngineCarrier:
@@ -27,7 +24,7 @@ class ShipEngineCarrier:
             "API-Key": self.api_key,
         }
 
-        resp = await SeRequest.post(headers=headers, payload=payload, url=url)
+        resp = await SeRequest.post(self, headers=headers, payload=payload, url=url)
 
         return resp
 
@@ -43,7 +40,7 @@ class ShipEngineCarrier:
             "API-Key": self.api_key,
         }
 
-        resp = await SeRequest.post(headers=headers, payload=payload, url=url)
+        resp = await SeRequest.post(self, headers=headers, payload=payload, url=url)
 
         return resp
 
@@ -61,6 +58,6 @@ class ShipEngineCarrier:
             "API-Key": self.api_key,
         }
 
-        resp = await SeRequest.put(headers=headers, payload=payload, url=url)
+        resp = await SeRequest.put(self, headers=headers, payload=payload, url=url)
 
         return resp

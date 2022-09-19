@@ -1,6 +1,3 @@
-from decouple import config
-import json
-import aiohttp
 from se_request import SeRequest
 
 
@@ -29,7 +26,7 @@ class ShipEngineTracking:
             "API-Key": self.api_key,
         }
 
-        resp = await SeRequest.post(headers=headers, payload=payload, url=url)
+        resp = await SeRequest.post(self, headers=headers, payload=payload, url=url)
 
         return resp
 
@@ -50,7 +47,7 @@ class ShipEngineTracking:
             "API-Key": self.api_key,
         }
 
-        resp = await SeRequest.post(headers=headers, payload=payload, url=url)
+        resp = await SeRequest.post(self, headers=headers, payload=payload, url=url)
 
         return resp
 
@@ -72,6 +69,6 @@ class ShipEngineTracking:
             "Content-Type": "application/json",
         }
 
-        resp = await SeRequest.get(headers=headers, payload=payload, url=url)
+        resp = await SeRequest.get(self, headers=headers, payload=payload, url=url)
 
         return resp
